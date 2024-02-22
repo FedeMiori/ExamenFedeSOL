@@ -13,6 +13,11 @@ public class Casilla {
         pieza = piezaEntrada;
     }
 
+    public boolean isVacia(){
+        return pieza == null;
+    }
+
+    @Override
     public String toString(){
         if(pieza == null)
             return " ";
@@ -20,3 +25,4 @@ public class Casilla {
             return pieza.toString();
     }
 }
+

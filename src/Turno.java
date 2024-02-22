@@ -18,7 +18,4 @@ public class Turno {
         return jugadores[tieneTurno];
     }
 
-    public Jugador[] getJugadores() {
-        return jugadores;
-    }
 }

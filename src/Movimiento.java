@@ -9,6 +9,7 @@ public class Movimiento {
         this.posicion = posicion;
     }
 
+    @Override
     public String toString(){
         return jugador.toString()+" coloca: "+pieza.toString()+" en "+posicion.toString();
     }

@@ -3,14 +3,12 @@ public class Jugador {
     private String apellido;
     private Pieza pieza;
 
-    public Jugador(String nombre) {
-        this.nombre = nombre;
-        this.apellido="";
-    }
-
     public Jugador(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
+    }
+    public Jugador(String nombre) {
+        this(nombre,"");
     }
 
     public Pieza getPieza() {
@@ -21,6 +19,7 @@ public class Jugador {
         this.pieza = pieza;
     }
 
+    @Override
     public String toString(){
         return nombre+" "+apellido;
     }

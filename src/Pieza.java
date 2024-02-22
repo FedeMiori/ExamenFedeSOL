@@ -1,3 +1,1 @@
-public enum Pieza {
-    X,O
-}
+public enum Pieza { X,O }
