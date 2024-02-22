@@ -33,7 +33,7 @@ class PartidaTresEnRaya implements Partida {
 
     @Override
     public boolean ponerPieza(Pieza pieza, Posicion posicion) {
-        if(turno.quienTieneTurno().getPieza() == pieza && tablero.getCasilla(posicion).isVacia() ){
+        if(turno.quienTieneTurno().getPieza() == pieza && tablero.getCasilla(posicion).estaVacia() ){
             tablero.colocarFicha(posicion,pieza);
             historico.add( new Movimiento(turno.quienTieneTurno(), pieza, posicion) );
             turno.cambiarTurno();

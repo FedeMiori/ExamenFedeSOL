@@ -12,7 +12,7 @@ public class Tablero {
     }
 
     public Casilla getCasilla(Posicion posicion){
-        return casillas[posicion.getPosX()][posicion.getPosY()];
+        return casillas[ posicion.getPosX() ][ posicion.getPosY() ];
     }
 
     public void colocarFicha(Posicion posicion,Pieza pieza){

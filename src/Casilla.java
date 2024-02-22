@@ -13,7 +13,7 @@ public class Casilla {
         pieza = piezaEntrada;
     }
 
-    public boolean isVacia(){
+    public boolean estaVacia(){
         return pieza == null;
     }
 
