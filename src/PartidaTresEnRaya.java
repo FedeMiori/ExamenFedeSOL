@@ -33,9 +33,10 @@ class PartidaTresEnRaya implements Partida {
 
     @Override
     public boolean ponerPieza(Pieza pieza, Posicion posicion) {
-        if(turno.quienTieneTurno().getPieza() == pieza && tablero.getCasilla(posicion).estaVacia() ){
+        if( piezaCorrecta(pieza) && casillaLibre(posicion) ){
             tablero.colocarFicha(posicion,pieza);
-            historico.add( new Movimiento(turno.quienTieneTurno(), pieza, posicion) );
+            Movimiento nuevoMovimiento = new Movimiento(turno.quienTieneTurno(), pieza, posicion);
+            agregarAlHistorico(nuevoMovimiento);
             turno.cambiarTurno();
             return true;
         }
@@ -47,9 +48,21 @@ class PartidaTresEnRaya implements Partida {
     @Override
     public void mostrarHistoricoMovimientos() {
         System.out.println("Historico movimientos:");
-        for (int i = 0; i < historico.size(); i++) {
-            System.out.println(historico.get(i).toString());
+        for (Movimiento movimiento : historico) {
+            System.out.println(movimiento.toString());
         }
+    }
+
+    private boolean piezaCorrecta(Pieza piezaPorComprobar){
+        return turno.quienTieneTurno().getPieza() == piezaPorComprobar;
+    }
+
+    private boolean casillaLibre(Posicion posicionPorComprobar){
+        return tablero.getCasilla( posicionPorComprobar ).estaVacia();
+    }
+
+    private void agregarAlHistorico(Movimiento movimiento){
+        historico.add( movimiento );
     }
 }
 
