@@ -35,8 +35,7 @@ class PartidaTresEnRaya implements Partida {
     public boolean ponerPieza(Pieza pieza, Posicion posicion) {
         if( piezaCorrecta(pieza) && casillaLibre(posicion) ){
             tablero.colocarFicha(posicion,pieza);
-            Movimiento nuevoMovimiento = new Movimiento(turno.quienTieneTurno(), pieza, posicion);
-            agregarAlHistorico(nuevoMovimiento);
+            agregarAlHistorico( new Movimiento(turno.quienTieneTurno(), pieza, posicion) );
             turno.cambiarTurno();
             return true;
         }
