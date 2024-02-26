@@ -1,14 +1,5 @@
 // [TODO Desarrollar Tablero, Pieza, Casilla, Posicion, Movimiento y Jugador]
 
-
-/**
- * Contiene todos los sucesos relacionados con una partida en un momento determinado:
- * jugadores y fichas asociadas, el jugador que le toca colocar una pieza, el tablero,
- * y el listado de movimientos (colocar piezas) realizados hasta ese momento.
- *
- * El número máximo de movimientos a almacenar en una partida es de 6
- */
-
 import java.util.*;
 class PartidaTresEnRaya implements Partida {
     private Jugador[] jugadores;
@@ -35,7 +26,7 @@ class PartidaTresEnRaya implements Partida {
     public boolean ponerPieza(Pieza pieza, Posicion posicion) {
         if( piezaCorrecta(pieza) && casillaLibre(posicion) ){
             tablero.colocarFicha(posicion,pieza);
-            agregarAlHistorico( new Movimiento(turno.quienTieneTurno(), pieza, posicion) );
+            historico.add( new Movimiento(turno.quienTieneTurno(), pieza, posicion) );
             turno.cambiarTurno();
             return true;
         }
@@ -58,10 +49,6 @@ class PartidaTresEnRaya implements Partida {
 
     private boolean casillaLibre(Posicion posicionPorComprobar){
         return tablero.getCasilla( posicionPorComprobar ).estaVacia();
-    }
-
-    private void agregarAlHistorico(Movimiento movimiento){
-        historico.add( movimiento );
     }
 }
 
